@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Achaar Ghar: Achaar, Chutney, Murabba aur bohat kuch.</title>
+  <meta name="description" content="Asli desi achaar, chutney aur murabba. Poore Pakistan mein delivery. WhatsApp par order karein.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Montserrat:wght@600;700;800&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+<div class="loader" id="loader"><div class="loader-jar"><span></span></div><p data-store-name></p></div>
+<div class="scroll-progress" id="scrollProgress"></div>
+<div class="spice-layer" id="spiceLayer" aria-hidden="true"></div>
+
+<!-- Announcement bar -->
+<div class="topbar">
+  <div class="topbar-track" id="topbarTrack"></div>
+</div>
+
+<!-- Header -->
+<header class="header" id="header">
+  <div class="container header-in">
+    <button class="icon-btn menu-btn" id="menuBtn" aria-label="Menu">
+      <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <a href="#" class="logo"><span class="logo-mark">AG</span><span class="logo-text" data-store-name></span></a>
+
+    <nav class="nav" id="nav">
+      <a href="#">Home</a>
+      <div class="has-drop">
+        <a href="#shop">Shop Now <svg viewBox="0 0 24 24" class="chev"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="drop" id="navDrop"></div>
+      </div>
+      <a href="#bestsellers">Best Selling Products</a>
+      <a href="#combos">Combos</a>
+      <a href="#about">About us</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="header-icons">
+      <button class="icon-btn" id="searchBtn" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></button>
+      <button class="icon-btn wish-btn" id="wishBtn" aria-label="Wishlist"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9.2-8.6C1.3 8.4 3 5 6.4 5c2 0 3.4 1.1 4.1 2.3h3C14.2 6.1 15.6 5 17.6 5 21 5 22.7 8.4 21.2 11.4 19 15.6 12 20 12 20z"/></svg><span class="count" id="wishCount">0</span></button>
+      <button class="icon-btn" id="openCart" aria-label="Cart"><svg viewBox="0 0 24 24"><path d="M5 7h14l-1.2 12.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span class="count" id="cartCount">0</span></button>
+    </div>
+  </div>
+
+  <!-- Search panel -->
+  <div class="search-panel" id="searchPanel">
+    <div class="container">
+      <div class="search-box">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input id="searchInput" type="search" placeholder="I'm looking for…" autocomplete="off">
+        <button class="icon-btn" id="searchClose" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      </div>
+      <div class="trending">Trending Search:
+        <button data-q="achaar">Achaar</button><button data-q="chai masala">Chai Masala</button><button data-q="murabba">Murabba</button><button data-q="chutney">Chutney</button>
+      </div>
+      <div class="search-results" id="searchResults"></div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- Popular products strip -->
+  <section class="popular">
+    <div class="container">
+      <div class="popular-row" id="popularRow"></div>
+    </div>
+  </section>
+
+  <!-- Hero slider -->
+  <section class="hero">
+    <div class="slides" id="slides">
+      <div class="slide active" style="background-image:url('images/p33984956.jpg')">
+        <div class="container slide-in">
+          <p class="slide-kicker">100% Desi • Sarson ka Tail • No Preservatives</p>
+          <h2>Nani ki Recipe,<br>Ab Aap ke Dastarkhwan Par</h2>
+          <p>Chhotay batches mein haath se bana asli desi achaar.</p>
+          <a href="#shop" class="btn btn-light">Shop Now</a>
+        </div>
+      </div>
+      <div class="slide" style="background-image:url('images/p32281630.jpg')">
+        <div class="container slide-in">
+          <p class="slide-kicker">Flat 40% OFF</p>
+          <h2>Top Selling Achaars<br>Sirf Rs. 600 se</h2>
+          <p>Aam, Lehsan, Mix, Bharwan Lal Mirch aur Nimboo.</p>
+          <a href="#top-achaars" class="btn btn-light">Shop Achaars</a>
+        </div>
+      </div>
+      <div class="slide" style="background-image:url('images/p7586251.jpg')">
+        <div class="container slide-in">
+          <p class="slide-kicker">Make a Combo &amp; Save More</p>
+          <h2>Gift Boxes for<br>Har Mauqay ke Liye</h2>
+          <p>Eid, shaadi ya mehmaan: behtareen desi tohfa.</p>
+          <a href="#combos" class="btn btn-light">Shop Combos</a>
+        </div>
+      </div>
+    </div>
+    <button class="slide-arrow prev" id="slidePrev" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <button class="slide-arrow next" id="slideNext" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+    <div class="dots" id="dots"></div>
+  </section>
+
+  <!-- Shop by categories -->
+  <section class="section" id="shop">
+    <div class="container">
+      <h2 class="section-title">Shop by Categories</h2>
+      <div class="cat-row" id="catRow"></div>
+    </div>
+  </section>
+
+  <!-- Dark band with badge cards -->
+  <section class="band">
+    <div class="container">
+      <div class="band-head">
+        <h2>Love Chatpata Achaar<br>But Hate The Milawat?</h2>
+        <p>Meet your new healthier obsession.</p>
+      </div>
+      <div class="badge-track-wrap">
+        <div class="badge-track" id="badgeTrack"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bestsellers -->
+  <section class="section" id="bestsellers">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">Bestsellers of this Week</h2>
+        <div class="tabs" id="bestTabs"></div>
+      </div>
+      <div class="grid" id="bestGrid"></div>
+    </div>
+  </section>
+
+  <!-- Order channels -->
+  <section class="apps">
+    <div class="container">
+      <p class="apps-kicker">AVAILABLE ACROSS PAKISTAN</p>
+      <h2 class="section-title">Order Karein Apni Pasand ke Tareeqay Se</h2>
+      <div class="apps-row">
+        <a class="app-card" id="appWa" target="_blank" rel="noopener"><b>WhatsApp</b><span>INSTANT</span></a>
+        <a class="app-card" id="appIg" target="_blank" rel="noopener"><b>Instagram</b><span>DM US</span></a>
+        <a class="app-card" id="appFb" target="_blank" rel="noopener"><b>Facebook</b><span>MESSENGER</span></a>
+        <a class="app-card" id="appCall"><b>Call</b><span>DIRECT</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Combos -->
+  <section class="section" id="combos">
+    <div class="container">
+      <h2 class="section-title">Make a Combo and Save More!</h2>
+      <div class="grid" id="comboGrid"></div>
+    </div>
+  </section>
+
+  <!-- Top selling achaars -->
+  <section class="section alt" id="top-achaars">
+    <div class="container">
+      <h2 class="section-title">Top selling Achaars</h2>
+      <div class="grid" id="topGrid"></div>
+      <div class="center"><button class="btn btn-outline" id="viewAll">View All Products</button></div>
+    </div>
+  </section>
+
+  <!-- All products (shown via View All / category / search) -->
+  <section class="section" id="all" hidden>
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title" id="allTitle">All Products</h2>
+        <select id="sort" class="sort">
+          <option value="default">Featured</option>
+          <option value="low">Price, low to high</option>
+          <option value="high">Price, high to low</option>
+          <option value="az">Alphabetically, A-Z</option>
+        </select>
+      </div>
+      <div class="filter-row" id="filterRow"></div>
+      <div class="grid" id="allGrid"></div>
+    </div>
+  </section>
+
+  <!-- Trust strip -->
+  <section class="trust">
+    <div class="container trust-in">
+      <div><svg viewBox="0 0 24 24"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg><div><b>Free Delivery PAN Pakistan</b><span data-free-text></span></div></div>
+      <div><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><div><b>100% Secure Payment</b><span>Cash on Delivery available</span></div></div>
+      <div><svg viewBox="0 0 24 24"><path d="M4 13a8 8 0 0 1 16 0v4a2 2 0 0 1-2 2h-2v-6h4M4 13v4a2 2 0 0 0 2 2h2v-6H4"/></svg><div><b>24/7 Customers Support</b><span>WhatsApp par hum hazir hain</span></div></div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="section reviews">
+    <div class="container">
+      <h2 class="section-title">Loved By Achaar Lovers Across Pakistan</h2>
+      <div class="rating-sum">4.9 <span class="stars">★★★★★</span> <small>| 10,000+ Happy Customers</small></div>
+    </div>
+    <div class="review-marquee"><div class="review-track" id="reviewTrack"></div></div>
+  </section>
+
+  <!-- About -->
+  <section class="section about" id="about">
+    <div class="container about-in">
+      <div class="about-img"><img src="images/p14363801.jpg" alt="Achaar jars" loading="lazy"></div>
+      <div>
+        <p class="apps-kicker">ABOUT US</p>
+        <h2 class="section-title left">Asli Ghar ke Achaar ka Swaad</h2>
+        <p>Hamara junoon hai asli, ghar ke bane achaar ke purane zaiqay ko zinda rakhna. Ye safar hamari rasoi ki purani riwayaton se mohabbat se shuru hua.</p>
+        <p>Hamare achaar chun chun kar liye gaye phalon aur sabziyon se, naslon se chali aa rahi khandani recipes ke mutabiq bantay hain. Har jar mein khalis sarson ka tail aur taaza masalay.</p>
+        <p>Har batch ek jaisa, har jar mein wohi meyaar. Aam ke achaar se le kar bharwan lal mirch tak, har cheez mohabbat se tayyar ki jati hai.</p>
+        <a href="#shop" class="btn btn-dark">Shop Now</a>
+      </div>
+    </div>
+    <div class="container stats">
+      <div><b data-count="10000" data-suffix="+">0</b><span>Happy Customers</span></div>
+      <div><b data-count="25" data-suffix="+">0</b><span>Desi Products</span></div>
+      <div><b data-count="50" data-suffix="+">0</b><span>Cities Delivered</span></div>
+      <div><b data-count="4.9" data-dec="1" data-suffix="★">0</b><span>Average Rating</span></div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="footer" id="contact">
+  <div class="container footer-in">
+    <div class="f-col">
+      <h4>Get in touch</h4>
+      <p><a id="fPhone"></a></p>
+      <p><a id="fEmail"></a></p>
+      <p id="fAddr"></p>
+      <div class="socials">
+        <a id="fFb" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v7h4v-7h3l1-4h-4V8a0 0 0 0 1 0 0z"/></svg></a>
+        <a id="fIg" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        <a id="fWa" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/></svg></a>
+      </div>
+    </div>
+    <div class="f-col">
+      <h4>Main menu</h4>
+      <p><a href="#shop">Shop Now</a></p>
+      <p><a href="#bestsellers">Best Selling Products</a></p>
+      <p><a href="#combos">Combos</a></p>
+      <p><a href="#about">About us</a></p>
+      <p><a href="#contact">Contact</a></p>
+    </div>
+    <div class="f-col">
+      <h4>Important Links</h4>
+      <p><a href="#" data-policy="shipping">Shipping Information</a></p>
+      <p><a href="#" data-policy="return">Return Policy</a></p>
+      <p><a href="#" data-policy="privacy">Privacy Policy</a></p>
+      <p><a href="#" data-policy="terms">Terms and Conditions</a></p>
+    </div>
+    <div class="f-col">
+      <h4>Sign Up for Offers</h4>
+      <p>Naye products aur discounts sab se pehle paayein.</p>
+      <form class="newsletter" id="newsletter">
+        <input type="tel" placeholder="Your WhatsApp number" required>
+        <button class="btn btn-dark" type="submit">Sign Up</button>
+      </form>
+      <small>By signing up you agree to our Terms of Service and Privacy Policy.</small>
+    </div>
+  </div>
+  <div class="container copy">© <span id="year"></span> <span data-store-name></span>. All rights reserved.</div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a class="wa-float" id="waFloat" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32" width="30" height="30" fill="#fff"><path d="M16 3C9 3 3.3 8.7 3.3 15.7c0 2.5.7 4.9 2 7L3 29l6.5-2.2c2 1.1 4.2 1.7 6.5 1.7 7 0 12.7-5.7 12.7-12.7S23 3 16 3zm0 23.2c-2.1 0-4.1-.6-5.9-1.7l-.4-.3-3.9 1.3 1.3-3.8-.3-.4c-1.2-1.8-1.8-3.9-1.8-6 0-5.8 4.7-10.6 10.6-10.6s10.6 4.7 10.6 10.6S21.8 26.2 16 26.2zm5.8-7.9c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.7 5 .8.3 1.4.5 1.9.7.8.3 1.6.2 2.2.1.7-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
+</a>
+
+<!-- Mobile nav -->
+<div class="overlay" id="overlay"></div>
+<aside class="mnav" id="mnav">
+  <div class="drawer-head"><b>Menu</b><button class="icon-btn" data-close aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="mnav-links" id="mnavLinks"></div>
+</aside>
+
+<!-- Quick view modal -->
+<div class="modal" id="quick" aria-hidden="true">
+  <div class="modal-box">
+    <button class="icon-btn modal-x" data-close aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <div class="qv" id="qvBody"></div>
+  </div>
+</div>
+
+<!-- Policy modal -->
+<div class="modal" id="policy" aria-hidden="true">
+  <div class="modal-box small">
+    <button class="icon-btn modal-x" data-close aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <div id="policyBody" class="policy"></div>
+  </div>
+</div>
+
+<!-- Cart drawer -->
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-head">
+    <b id="drawerTitle">Shopping Cart</b>
+    <button class="icon-btn" data-close aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div class="free-bar" id="freeBar"><p id="freeText"></p><div class="bar"><i id="freeFill"></i></div></div>
+
+  <div class="drawer-body" id="cartView">
+    <div id="cartItems"></div>
+    <div class="cart-empty" id="cartEmpty">
+      <svg viewBox="0 0 24 24"><path d="M5 7h14l-1.2 12.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+      <p>Your cart is currently empty!</p>
+      <button class="btn btn-dark" data-close>Continue Shopping</button>
+    </div>
+  </div>
+
+  <form class="drawer-body checkout" id="checkoutForm" hidden novalidate>
+    <p class="co-note">Apni details bharein. Order seedha hamare WhatsApp par chala jayega.</p>
+    <label>Full Name *<input name="name" required placeholder="Muhammad Ali" autocomplete="name"></label>
+    <label>Mobile Number *<input name="phone" required inputmode="tel" placeholder="03XX XXXXXXX" autocomplete="tel" pattern="^(\+92|0092|92|0)?3[0-9]{2}[ -]?[0-9]{7}$"></label>
+    <label>City *
+      <input name="city" required list="cities" placeholder="Lahore" autocomplete="address-level2">
+      <datalist id="cities"><option>Karachi</option><option>Lahore</option><option>Islamabad</option><option>Rawalpindi</option><option>Faisalabad</option><option>Multan</option><option>Peshawar</option><option>Quetta</option><option>Sialkot</option><option>Gujranwala</option><option>Hyderabad</option><option>Bahawalpur</option><option>Sargodha</option><option>Abbottabad</option></datalist>
+    </label>
+    <label>Complete Address *<textarea name="address" required rows="3" placeholder="House #, Street, Area, Landmark" autocomplete="street-address"></textarea></label>
+    <div class="pay">
+      <span>Payment Method</span>
+      <label class="radio"><input type="radio" name="payment" value="Cash on Delivery" checked> Cash on Delivery</label>
+      <label class="radio"><input type="radio" name="payment" value="Prepaid (Bank / JazzCash / Easypaisa)"> Prepaid: Bank / JazzCash / Easypaisa <em>Extra <span data-prepaid></span>% OFF</em></label>
+    </div>
+    <label>Order Notes (optional)<textarea name="notes" rows="2" placeholder="Koi khaas hidayat"></textarea></label>
+    <p class="form-error" id="formError" hidden></p>
+  </form>
+
+  <div class="drawer-foot" id="drawerFoot" hidden>
+    <div class="totals">
+      <div><span>Subtotal</span><b id="subtotal"></b></div>
+      <div id="discRow" hidden><span>Prepaid Discount</span><b id="disc"></b></div>
+      <div><span>Delivery</span><b id="delivery"></b></div>
+      <div class="grand"><span>Total</span><b id="total"></b></div>
+    </div>
+    <button class="btn btn-dark block" id="toCheckout">Check Out</button>
+    <button class="btn btn-wa block" id="sendWa" hidden form="checkoutForm" type="submit">
+      <svg viewBox="0 0 32 32" width="20" height="20" fill="#fff"><path d="M16 3C9 3 3.3 8.7 3.3 15.7c0 2.5.7 4.9 2 7L3 29l6.5-2.2c2 1.1 4.2 1.7 6.5 1.7 7 0 12.7-5.7 12.7-12.7S23 3 16 3z"/></svg>
+      Order Now on WhatsApp</button>
+    <button class="link-btn" id="backToCart" hidden type="button">← Back to cart</button>
+  </div>
+</aside>
+
+<div class="toast" id="toast"></div>
+
+<script src="js/products.js"></script>
+<script src="js/app.js"></script>
+<script src="js/animations.js"></script>
+</body>
+</html>
